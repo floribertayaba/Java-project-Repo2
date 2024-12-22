@@ -10,11 +10,12 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <!-- Add your dependencies here -->
+        <!-- Add your dependencies here if you have any -->
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Compiler plugin to compile Java code -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -22,6 +23,20 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
+                </configuration>
+            </plugin>
+
+            <!-- Jar plugin to specify Main-Class in manifest -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Main-Class>com.example.App</Main-Class> <!-- Change this to your actual main class -->
+                        </manifestEntries>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
